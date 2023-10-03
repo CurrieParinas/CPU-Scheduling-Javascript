@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Currie Parinas</title>
+    <link rel="stylesheet" type="text/css" href="index.css">
+
+</head>
+<body class = "back" style="color:aliceblue">
+    <div class="header">
+        <img src="assets\logo.png" style="width: 4rem; margin-left: 1rem">
+        <h1 class="title">CPU SCHEDULING</h1>
+        <div class="right_header">
+            <h1 >Currie Exekiel B. Parinas</h1>    
+        </div>
+    </div>
+    <div class="body">
+        <div id="main">
+            <br>
+            <div id="userInput">
+                <div class="initial_data">
+                    <div class="body_text">
+                        <h2 class="body_title">INITIAL DATA:</h2>
+                    </div>
+                    <form id="process-form" class="form">
+                        <br>
+                        <div class="to_col">
+                            <div class="input_style">
+                                <br>
+                                <label for="algorithm">Scheduling Algorithm:</label>
+                                    <select id="algorithm" name="algorithm" class="data_placeholder" onchange="toggleTimeQuantum()">
+                                        <br>
+                                        <option value="firstComeFirstServed">First-Come, First-Served</option>
+                                        <option value="shortestJobFirst">Shortest Job First</option>
+                                        <option value="shortestRemainingTimeFirst">Shortest Remaining Time First</option>
+                                        <option value="priorityPreemptive">Priority (Preemptive)</option>
+                                        <option value="priorityNonPreemptive">Priority (Non-Preemptive)</option>
+                                        <option value="roundRobin">Round Robin</option>
+                                    </select>
+                                    <br> <br>
+                                <label for="num-processes">Number of Processes:</label>
+                                <input type="number" id="num-processes" name="num-processes" required class="data_placeholder"> <br> <br>
+                                <div id="time-quantum-container" style="display: none;">
+                                    <label for="time-quantum">Time Quantum:</label>
+                                    <input type="number" id="time-quantum" name="time-quantum" class="data_placeholder"> <br>
+                                </div>
+                                <br> <br>
+                            </div>
+                            <div class="button_style">
+                                <button id="submitbtn" type="submit" class="button_to_press"><b>Set Table Elements</b></button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div> <br>            
+        </div>
+    </div>
+
+    <div class="insert_table_data">
+        <br> <br>
+        <div id="table-container" >
+            <div class="upper_container">
+                <h2><b style="color: #DDE6ED;" class="form">Table:</b></h2>
+                <table id="processes-table" class="the_table">
+                    <thead>
+                        <tr>
+                            <th>Process ID</th>
+                            <th>Arrival Time</th>
+                            <th>Burst Time</th>
+                            <th>Priority</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table> <br> <br>
+
+                <div id="start-container" class="button_style1"> 
+                    <button onclick="main()" id="start-btn" class="button_to_press"><b>Apply Scheduling Algorithm</b></button>
+                </div>
+                <br>
+            </div>
+        </div>
+        <br> <br>
+    </div>
+
+    <div id="result" class="insert_table_data">
+        <br><br>
+        <div id="resultBox">
+            <div id="result-container" class="upper_container">
+                <h2><b style="color: #DDE6ED;" class="form">Result:</b></h2>
+
+                <table id="process-table">
+                    <thead>
+                        <tr>
+                            <th>Process ID</th>
+                            <th>Arrival Time</th>
+                            <th>Burst Time</th>
+                            <th>Priority</th>
+                            <th>Completion Time</th>
+                            <th>Response Time</th>
+                            <th>Waiting Time</th>
+                            <th>Turnaround Time</th>
+                        </tr>
+                    </thead>
+                <tbody></tbody>
+                </table>
+                <br> <br>
+            </div>
+            <br> <br>
+            <div class="upper_container ">
+                <h2><b style="color: #DDE6ED;" class="form">Gantt Chart:</b></h2>
+                <div id="gantt-chart" class="form" style="color: #DDE6ED"></div>
+                <br><br>
+            </div>
+            <br><br>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
